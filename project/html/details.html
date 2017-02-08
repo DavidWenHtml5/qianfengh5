@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>详情页</title>
+		<link rel="stylesheet" type="text/css" href="../libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../libs/jquery-confirm/jquery-confirm.css"/>
+		<link rel="stylesheet" type="text/css" href="../libs/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../common/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/details.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/jqzoom.css"/>
+		
+		<script src="../libs/jquery-3.1.1/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../libs/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../libs/jquery-validation-1.15.0/dist/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../libs/jquery-validation-1.15.0/src/localization/messages_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../libs/jquery-confirm/jquery-confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/list_page.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/details.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.jqzoom.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/base.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="head"></div>
+		
+		<div id="list-page-subnav">
+			<dl class="subnav">
+				<dt class="subnav-title">全部商品分类<i class="fa fa-chevron-down"></i></dt>
+				<dd class="subnavlist">
+					<dl class="subnavlist2 first">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat 0 -47px;">酒类饮料
+							<p style="background: url(../images/common-images/icohover.png) no-repeat 0 -47px #e31939;">酒类饮料</p>
+						</dt>
+						<dd>酒水 冲调饮品  饮...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat;">手机数码
+							<p style="background: url(../images/common-images/icohover.png) no-repeat #e31939;">手机数码</p>
+						</dt>
+						<dd>网卡 热卖手机 手 ...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat 0 -144px;">母婴用品
+							<p style="background: url(../images/common-images/icohover.png) no-repeat 0 -144px #e31939;">母婴用品</p>
+						</dt>
+						<dd>尿裤湿巾 玩具 ...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat 0 -47px;">酒类饮料
+							<p style="background: url(../images/common-images/icohover.png) no-repeat 0 -47px #e31939;">酒类饮料</p>
+						</dt>
+						<dd>酒水 冲调饮品  饮...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat ;">手机数码
+							<p style="background: url(../images/common-images/icohover.png) no-repeat #e31939;">手机数码</p>
+						</dt>
+						<dd>网卡 热卖手机 手 ...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat 0 -144px;">母婴用品
+							<p style="background: url(../images/common-images/icohover.png) no-repeat 0 -144px #e31939;">母婴用品</p>
+						</dt>
+						<dd>尿裤湿巾 玩具 ...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat 0 -47px;">酒类饮料
+							<p style="background: url(../images/common-images/icohover.png) no-repeat 0 -47px #e31939;">酒类饮料</p>
+						</dt>
+						<dd>酒水 冲调饮品  饮...</dd>
+					</dl>
+					<dl class="subnavlist2">
+						<dt style="background: url(../images/common-images/ico.png) no-repeat ;">手机数码
+							<p style="background: url(../images/common-images/icohover.png) no-repeat #e31939;">手机数码							
+</p>
+						</dt>
+						<dd>网卡 热卖手机 手 ...</dd>
+					</dl>						
+				</dd>
+				
+				<div class="subnavlist2-ul-list">
+					<div class="subnavlist2-ul">
+						<ul>
+							<li class="clear">
+								<div>酒水：</div>
+								<div class="subnavlink">
+									<a href="list_page.html">红酒</a>
+									<a href="list_page.html">养生酒</a>
+									<a href="list_page.html">红酒</a>
+									<a href="list_page.html">养生酒</a>
+									<a href="list_page.html">红酒</a>
+									<a href="list_page.html">养生酒</a>
+									<a href="list_page.html">红酒</a>
+									<a href="list_page.html">养生酒</a>
+									<a href="list_page.html">红酒</a>
+									<a href="list_page.html">养生酒</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>酒水：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>酒水：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>酒水：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>酒水：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+									<a href="javascript:void(0);">红酒</a>
+									<a href="javascript:void(0);">养生酒</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				
+					<div class="subnavlist2-ul">
+						<ul>
+							<li class="clear">
+								<div>热卖手机：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone<热卖手机>
+									<a href="javascript:void(0);">华为荣耀</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>热卖手机：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone<热卖手机>
+									<a href="javascript:void(0);">华为荣耀</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>热卖手机：</div>
+								<div class="subnavlink">
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone</a>
+									<a href="javascript:void(0);">华为荣耀</a>
+									<a href="javascript:void(0);">iPhone<热卖手机>
+									<a href="javascript:void(0);">华为荣耀</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>热卖手机：</div>
+								<div class="subnavlink">
+									<a href="javascript:;">iPhone</a>
+									<a href="javascript:;">华为荣耀</a>
+									<a href="javascript:;">iPhone</a>
+									<a href="javascript:;">华为荣耀</a>
+									<a href="javascript:;">iPhone</a>
+									<a href="javascript:;">华为荣耀</a>
+									<a href="javascript:;">iPhone</a>
+									<a href="javascript:;">华为荣耀</a>
+									<a href="javascript:;">iPhone<热卖手机>
+									<a href="javascript:;">华为荣耀</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="subnavlist2-ul">
+						<ul>
+							<li class="clear">
+								<div>孕婴奶粉：</div>
+								<div class="subnavlink">
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉<热卖手机>
+									<a href="javascript:;">1段</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>孕婴奶粉：</div>
+								<div class="subnavlink">
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉<热卖手机>
+									<a href="javascript:;">1段</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>孕婴奶粉：</div>
+								<div class="subnavlink">
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉<热卖手机>
+									<a href="javascript:;">1段</a>
+								</div>
+							</li>
+							<li class="clear">
+								<div>孕婴奶粉：</div>
+								<div class="subnavlink">
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉</a>
+									<a href="javascript:;">1段</a>
+									<a href="javascript:;">特配奶粉<热卖手机>
+									<a href="javascript:;">1段</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</dl>
+		</div>
+		
+		<div id="details-page">	
+			<div class="details-page-top">
+				<div class="details-page-url">
+					<i></i><a href="../index.html">首页</a> &gt; <a href="list_page.html">红酒</a>&gt; <a href="details.html">法国卡斯特干红葡萄酒单支750ml</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id="details-product">
+			<div class="details-page-goods">
+				<div class="goods-img">
+					<div class="">
+						
+					</div>
+					<div class="bigimage jqzoom">
+						<img src="../images/listpage/3048_P_1450740809683.png" jqimg="../images/listpage/3048_P_1450740809100.jpg">
+					</div>
+					<div class="smallimg clear">
+						<span class="changeleft"></span>
+						<a href="javascript:void(0);"><img src="../images/listpage/3048_P_1450740809683.png"/></a>
+						<a href="javascript:void(0);"><img src="../images/listpage/3048_thumb_P_1450740858081.jpg"/></a>
+						<a href="javascript:void(0);"><img src="../images/listpage/3048_thumb_P_1450740866578.jpg"/></a>
+						<a href="javascript:void(0);"><img src="../images/listpage/3048_thumb_P_1450740876921.jpg"/></a>						
+						<span class="changeright"></span>
+					</div>
+				</div>
+				<div class="goods-price">
+					<h2>法国卡斯特干红葡萄酒单支750ml</h2>
+					<div class="summary-price">
+						<p>售价<span class="myprice">388.0</span></p>
+						<p>市场价<span class="marketprice">478.8</span></p>
+					</div>
+					<ul class="product-code clear">
+                        <li><span>商品货号</span>JHM003048</li>
+		                <li><span>上架时间</span>2015-12-22</li>
+                    </ul>
+                    <ul class="other clear">
+                    	<li>累积评价<a href="javasctipt:;"> 0人评价</a></li>
+                    	<li>累积销量<span> 0</span></li>
+                    	<li>赠送积分<span> 399</span></li>
+                    </ul>
+                    <div class="choose-amount clear">
+                    	<span>数量：</span><a href="javascript:void(0);" class="cut"></a><input type="text" name="" class="quantity" value="1" /><a href="javascript:void(0);" class="add"></a> （库存100）
+                    </div>
+                    <div class="buy-add">
+                    	<a href="javasctipt:void(0);" class="buynow">立即购买</a><a href="javascript:;" class="addtocart">加入购物车</a>
+                    </div>
+				</div>
+			</div>
+			
+			<div class="goods-details">
+				<ul class="toplist clear">
+					<li class="hold">规格参数</li>
+					<li>商品介绍</li>
+					<li>商品评价（0）</li>
+					<li>售后保障</li>
+					<li class="hold addcar">加入购物车</li>
+				</ul>
+				<ul class="detail-list clear">
+	               <li>商品名称：法国卡斯特干红葡萄酒单支750ml</li>
+	               <li>商品编号：JHM003048</li>
+	               <li>品牌：<a href=""></a></li>
+	               <li>上架时间：2015-12-22</li>
+	               <li>商品毛重：0克</li>
+                   <li>库存：100</li>
+                </ul>
+                <div class="details-img">
+                	<img src="../images/listpage/TB2WkbMcXXXXXXVXXXXXXXXXXXX_!!2258368935.jpg"/>
+                	<img src="../images/listpage/TB2jGrMcXXXXXafXXXXXXXXXXXX_!!2258368935.jpg"/>
+                </div>
+			</div>
+		</div>
+		
+		<div id="foot-links"></div>
+		<div id="footer"></div>
+	</body>
+</html>

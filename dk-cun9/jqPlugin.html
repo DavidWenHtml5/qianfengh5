@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/swiper/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/common/common.css">
+	<link rel="stylesheet" type="text/css" href="libs/page-css/index.css">
+
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/swiper/swiper.min.js"></script>
+	<script type="text/javascript" src="libs/common/common.js"></script>
+	<script type="text/javascript" src="libs/page-js/index.js"></script>
+
+</head>
+<body>
+	<div id="div"></div>
+	<script type="text/javascript">
+	$(function(){
+		//有选择器 => $(selector).dkinit
+		$.fn.dkinit = function(opt){
+			var _defalut = {};
+			var newobj = $.extend(true, _defalut, opt);
+			
+			$(this).css({width: 100, height: 100, 'background-color': '#ccc'});
+			return $(this);
+		};
+		//没有选择器的 => $.dkinit()
+		$.dkinit = function(){
+			console.log('dkinit');
+		}
+
+		$('#div').dkinit({}).css();
+		$.dkinit();
+	})
+	</script>
+</body>
+</html>

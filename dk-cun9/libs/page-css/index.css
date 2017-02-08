@@ -1,0 +1,39 @@
+dk{display: block; width: 100px; height: 30px; background-color: red;}
+
+.sub-nav-width{width: 92%; margin: 0 auto; height: 100%;  position: relative;}
+.dk-banner{height: 450px; width: 100%; }
+.dk-banner>div>div{float: left;}
+.dk-banner>div>div:first-child{width: 200px; background-color: #000;  height: 100%;}
+.dk-banner>div>div:first-child *{color: #fff;}
+.dk-banner>div>div:first-child>ul{width: 100%; height: 32px; line-height: 32px;}
+.dk-banner>div>div:first-child>ul>li{float: left; padding: 5px 10px;}
+
+.dk-banner>div>div:nth-child(2){position: absolute; top: 0; bottom: 0; background-color: red; left: 200px; right: 200px; overflow: hidden;}
+.dk-banner>div>div:nth-child(2) img{width: 100%;}
+
+.dk-banner>div>div:nth-child(3){position: absolute; width: 200px; height: 100%; background-color: green; right: 0;}
+
+.products1{width: 92%; height: 250px; border: 4px solid #64c883; margin: 20px auto;}
+.products1>ul{width: 100%; height: 100%;}
+.products1>ul>li{float: left; width: 20%; padding: 15px;}
+.products1>ul>li>a>*{display: block;}
+
+.products2{width: 92%; height: 250px; border: 1px solid #ccc; margin: 20px auto;}
+.products2>ul{width: 100%; height: 100%;}
+.products2>ul>li{float: left; width: 20%; padding: 15px; border-right: solid 1px #ccc; height: 100%;}
+.products2>ul>li:last-child{border: none;}
+.products2>ul>li>a>*{display: block;}
+
+.products3{width: 92%; height: 250px; border: 1px solid #ccc; margin: 20px auto; height: 500px}
+.products3>div{float: left; height: 500px;}
+.products3>div:first-child{width: 30%; background-color: #ddd;}
+.products3>div:first-child>*{width: 100%; height: 50%;}
+.products3>div:first-child>div>img{width: 100%;}
+.products3>div:first-child>ul>li{float: left; width: 50%; height: 50%; border: solid 1px #ccc;}
+.products3>div:first-child>ul>li>a{display: block; margin-top: 26px; text-align: center;}
+
+.products3>div:last-child{width: 70%;}
+.products3>div:last-child>ul{width: 100%; height: 100%;}
+.products3>div:last-child>ul>li{width: 25%; height: 50%; border: solid 1px #ccc; float: left; text-align: center; padding: 5px;}
+.products3>div:last-child>ul>li>a{display: block; text-align: center; margin-top: 30px;}
+.products3>div:last-child>ul>li>a>*:not(img){display: block; text-align: center;}

@@ -1,0 +1,24 @@
+需求分析
+1、注册(signup.html) => 能跳转到登录界面  => 注册成功后提示用户可跳转到登录界面进行登陆
+   api(post)： common.baseUrl + 'Account/Register', 参数：[account,password,phone,mail,username,classes]
+
+2、登录(login2.html) => 能跳到注册界面 => 登录成功后跳转到主页面(main.html)
+   api(post)：common.baseUrl + 'Account/login'，参数：[account, password]
+
+3、主页面(main.html) => 首先要获取当前登录的用户，显示当前登录的用户名，有退出登陆功能，退出成功则跳到登录页面(login2.html)，可以查看项目并下载项目 => 必须要在登录状态下访问，如果当前用户没有登录则自动跳到登录页面(login2.html)
+   获取当前登录用户：api(post)：common.baseUrl + 'Account/Index'，参数：[]
+   退出登录：api(post)：common.baseUrl + 'Account/LogOut'，参数：[]
+   查看项目：$.load('project.html')
+   下载项目：api(get)：common.baseUrl + 'file/DownLoad'，参数：[]
+
+项目要求：
+全部技术没有任何限制
+1、登陆 => 要使用 cookie 保存用户信息
+2、注册 => 要使用 cookie 保存用户信息
+3、首页
+4、列表页 => 用 ajax 实现翻页
+5、详情页 => 加入购物车、用户评论
+6、购物车 => 用 ajax 实现翻页，而且要使用 cookie 存储商品信息
+7、整个项目最后必须用 git 提交，
+8、答辩的时候要到我的机器用 git 下载到源码并能正常运行起来
+9、答辩需要 ppt 说明

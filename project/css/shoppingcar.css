@@ -1,0 +1,35 @@
+#shoppingcar{width:100%;background: #fafafa;padding-top:10px ;}
+.tablehead,.productlist,.topay{width:990px;margin: 0 auto;}
+
+.tablehead{border: 1px solid #ddd;background: #f0f0f0;}
+.tablehead ul li{float: left;height: 35px;line-height: 35px;text-align: center;}
+.tablehead ul li input{margin-top: 10px;float: left;margin-left: 20px;}
+.check{width: 80px;}
+.product{width: 367px;}
+.number{width: 148px;}
+.price{width: 148px;}
+.subtotal{width: 148px;}
+.delete{width: 97px;}
+
+.productlist{border: 1px solid #ddd;background: #fff;}
+.productlist tr{border-top: 1px dotted #ddd;}
+.productlist tr td{text-align: center;color: #aaa;height: 20px;line-height: 20px;padding: 18px 0;}
+.productlist tr td img{height: 60px;width: 60px;}
+.productlist tr td a{color: #aaa;}
+.productlist tr .product a:hover{color: red;}
+.productlist tr td span{color: red;}
+.productlist tr td .quantity{float:left;width: 40px;text-align: center;height: 22px;line-height: 22px;outline: none;}
+.productlist tr .number a{float:left;height: 15px;width: 15px;margin: 5px;}
+.productlist tr td .cut{background: url(../images/listpage/goods_act.png) no-repeat -44px -25px;margin-left: 35px;}
+.productlist tr td .cut:hover{background: url(../images/listpage/goods_act.png) no-repeat -44px -41px;}
+.productlist tr td .add{background: url(../images/listpage/goods_act.png) no-repeat -60px -25px;}
+.productlist tr td .add:hover{background: url(../images/listpage/goods_act.png) no-repeat -60px -41px;}
+
+.topay{border: 1px solid #ddd;background: #fff;border-top: 0;height: 65px;line-height: 65px;}
+.topay .goahead{display: inline-block;width: 142px;height: 42px;line-height:42px;border: 1px solid #ddd;text-align: center;
+color: #666;background: #f0f0f0;margin: 0 20px;}
+.topay .goahead:hover{text-decoration: none;}
+.topay .clearcar{color: #aaa;padding-right: 90px;}
+.topay .total{color: red;font-size: 16px;}
+.topay .payfor{float:right;display:inline-block;width: 142px;height: 42px;line-height:42px;background: #e31939;color: white;text-align: center;margin:10px 20px;font-size: 18px;}
+.topay .payfor a:hover{text-decoration: none;}

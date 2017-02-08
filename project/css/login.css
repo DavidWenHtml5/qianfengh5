@@ -1,0 +1,18 @@
+.register-main{background: url(../images/common-images/loginPic.jpg) no-repeat 0 20px;padding: 20px 0;margin-bottom: 20px;}
+.register-box a{color: blue;}
+.register-box a:hover{color: red;}
+.register-box .register-link{margin:0 0 20px 180px;}
+.register-box form{border: 1px solid #aaa;padding: 30px;border-radius:6px}
+.register-box form div{border: 1px solid #aaa;padding: 8px;margin-bottom: 20px;}
+.register-box form label{height: 24px;line-height:24px;color: dodgerblue;padding-top: 2px;}
+.register-box form div input{width:240px;height: 24px;line-height:24px;border: none;font-size: 14px;margin-left:10px ;font-weight: bold;outline: none;}
+.register-box form .checkbox{border: none;margin: 0;}
+.register-box form .checkbox #checkbox{font-size: 16px;height:28px;width:14px;margin:0;}
+.register-box form .checkbox label{margin-right: 20px;}
+.register-box form #submit{margin:20px 0 20px 30px;height:36px;line-height:34px;width: 200px;background: mediumorchid;color: white;border-radius:8px;border: none;font-size: 16px;font-weight: bold;}
+.register-box form .item{border: none;margin-bottom: 0;}
+.register-box .item a{display: inline-block;height:24px;line-height:24px;margin-right:10px;}
+.register-box form .item .item-logo{height:24px;width:24px;background: url(../images/common-images/login.png) no-repeat -170px -40px;margin-right: 5px;}
+.register-box form .item .item-logo2{height:24px;width:24px;background: url(../images/common-images/login.png) no-repeat -10px -40px;margin-right: 5px;}
+.register-box form .item .item-logo3{height:24px;width:24px;background: url(../images/common-images/login.png) no-repeat -63px -40px;margin-right: 5px;}
+.register-box form .item .item-logo4{height:24px;width:24px;background: url(../images/common-images/login.png) no-repeat -125px -40px;margin-right: 5px;}

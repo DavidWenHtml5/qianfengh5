@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/jquery-confirm.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="common/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/login.css"/>
+		
+		<script src="libs/jquery-3.1.1/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-validation-1.15.0/dist/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-validation-1.15.0/src/localization/messages_zh.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-confirm/jquery-confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="common/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/base.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<!--用.load()从common.js加载头部-->
+		<div id="register-header"></div>
+		
+		<div id="register-main-wrap">
+			<div class="register-main clear">
+				<div class="register-box fr">
+						<div class="register-link">还没有帐号！<a href="register.html">立即注册</a></div>
+						
+					<form>
+						<div class="username clear">
+							<label for="username" class="fa fa-user fa-2x fl"></label><input type="text" name="" id="username" placeholder="请输入用户名" class="fl"/>
+						</div>
+						<div class="password clear">
+							<label for="password" class="fa fa-unlock-alt fa-2x fl"></label><input type="password" name="" id="password" placeholder="请输入密码" class="fl"/>					
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" name="checkbox" id="checkbox" value="" /><label for="checkbox" class="">保存登录信息十天内有效。</label><a href="javascript:;">忘记密码</a>
+						</div>
+						<input type="button" name="sub" id="submit" value="用户登录" />
+						<div class="item clear">
+							<a href="http://www.juhuimai.cn/user.php?act=oath&type=weixin"><i class="item-logo fl"></i>微信</a>
+							<a href="http://www.juhuimai.cn/user.php?act=oath&type=qq"><i class="item-logo2 fl"></i>QQ</a>
+							<a href="http://www.juhuimai.cn/user.php?act=oath&type=weibo"><i class="item-logo3 fl"></i>新浪</a>
+							<a href="http://www.juhuimai.cn/user.php?act=oath&type=alipay"><i class="item-logo4 fl"></i>支付宝</a>
+						</div>
+					</form>
+				</div>	
+			</div>
+		</div>
+		
+		<!--用.load()从common.js加载脚部-->
+		<div id="footer"></div>
+	</body>
+</html>

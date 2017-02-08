@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/swiper/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/paginationjs-master/dist/pagination.css">
+	<link rel="stylesheet" type="text/css" href="libs/common/common.css">
+	<link rel="stylesheet" type="text/css" href="libs/page-css/products.css">
+
+	<script type="text/javascript" src="libs/jquery/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="libs/swiper/swiper.min.js"></script>
+	<script type="text/javascript" src="libs/paginationjs-master/dist/pagination.js"></script>
+	<script type="text/javascript" src="libs/common/common.js"></script>
+	<script type="text/javascript" src="libs/page-js/products.js"></script>
+	<script src="libs/page-js/jqDom.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+	<dk-header url="header.html" replace="false"></dk-header>
+
+	<div class="products1">
+		<ul>
+			<li>
+				<a href="jd.com" title="">
+					<img src="libs/imgs/571d7d8bNb6cf5576.jpg"dk-bind="img" alt="">
+					<span dk-bind="proName"></span>
+					<span dk-bind="price"></span>
+					<span dk-bind="id"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+		
+	<div id="wrapper">
+	    <section>
+	        <div class="data-container"></div>
+	        <div id="pagination-demo1"></div>
+	    </section>
+	</div>	
+</body>
+</html>

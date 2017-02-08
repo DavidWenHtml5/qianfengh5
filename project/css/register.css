@@ -1,0 +1,22 @@
+.register-main{background: url(../images/common-images/loginPic.jpg) no-repeat 0 20px;padding: 20px 0;margin-bottom: 20px;}
+.register-box .registration li{float: left;height: 36px;line-height: 16px;font-size: 13px;padding: 10px 24px;border-bottom: 1px solid #aaa;}
+.register-box .registration .now{border: 1px solid #aaa;border-bottom: none;cursor: pointer;color:red;border-radius:8px 8px 0 0}
+.register-box .registration .phone-reg{cursor: pointer}
+.register-box .registration .email-reg{cursor: pointer}
+.register-box .registration .login-link{border-bottom: 1px solid #aaa;}
+.register-box .registration .login-link a{color:blue;}
+.register-box .registration .login-link a:hover{color:red;}
+.register-box form{border: 1px solid #aaa;padding: 30px;border-top:none ;}
+.register-box form div{border: 1px solid #aaa;padding: 8px;}
+.register-box form label{height: 24px;line-height:24px;color: dodgerblue;padding-top: 2px;}
+.register-box form .fa-envelope{padding: 0;}
+.register-box form div input{height: 24px;line-height:24px;border: none;font-size: 16px;margin-left:10px ;font-weight: bold;outline: none;}
+.register-box form div #email{margin-left:8px}
+.register-box form div span{font-size: 14px;height:24px;line-height: 24px;color: red;}
+.register-box form p{height: 30px;line-height: 30px;font-size: 18px;color: red;text-align: center;}
+.register-box form .email{display: none;}
+.register-box form .email-check{display: none;}
+.register-box form .code{border: none;}
+.register-box form .code input{border: 1px solid #aaa;width: 100px;margin-right: 10px;}
+.register-box form .code span{display: block;background: hotpink;color: white;padding: 3px 6px;line-height: 20px;cursor: pointer;}
+.register-box form #submit{margin-left:30px;height:36px;line-height:34px;width: 200px;background: mediumorchid;color: white;border-radius:8px;border: none;font-size: 16px;font-weight: bold;}
