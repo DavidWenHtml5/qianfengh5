@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/css/jquery-confirm.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.min.css"/>
+		
+		<script src="libs/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-confirm/js/jquery-confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/angular/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/js/jqall.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/es6js/all.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app='register' ng-controller='registercontroller'>
+		<header>
+			<a href="javascript:window.history.go(-1)">
+				<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+			</a>
+			<div>注册页</div>
+			<a href="javascript:;" class="more">
+				<i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+			</a>
+		</header>
+		
+		<div class="content">
+			<div class="register-box">
+				<div class="login-link">已有帐号！<a href="login.html">登录</a></div>
+				<div class="register-now">现在注册</div>
+				<form name="myForm" novalidate>
+					<div class="phone">
+						<i class="fa fa-mobile-phone fa-3x fl"></i>
+						<input type="text" placeholder="请输入手机号" ng-model="phone" />
+						<span> *必填</span>
+					</div>
+					<p class="phone-check"></p>
+					<div class="email">
+						<i class="fa fa-envelope fa-2x fl"></i>
+						<input type="email" name="email" placeholder="请输入邮箱" ng-model="email" required/>
+						<span> *必填</span>		
+					</div>
+					<p style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+						<span ng-show="myForm.email.$error.required">邮箱是必须的。</span>
+			            <span ng-show="myForm.email.$error.email">非法的邮箱地址。</span>
+					</p>	
+					<div class="account ">
+						<i class="fa fa-user fa-2x fl"></i>
+						<input type="text" name="account" placeholder="请输入用户名" ng-model="account" required/>
+						<span> *必填</span>		
+					</div>
+					<p style="color:red" ng-show="myForm.account.$dirty && myForm.account.$invalid">
+						<span ng-show="myForm.account.$error.required">邮箱是必须的。</span>
+					</p>	
+					<div class="password ">
+						<i class="fa fa-unlock-alt fa-2x fl"></i>
+						<input type="password" placeholder="请输入密码" ng-model="password"/>
+						<span> *必填</span>							
+					</div>
+					<p class="password-check"></p>
+					<div class="password2 ">
+						<i class="fa fa-unlock-alt fa-2x fl"></i>
+						<input type="password" placeholder="请确认密码" ng-model="password2"/>
+						<span> *必填</span>							
+					</div>
+					<p class="repassword-check"></p>
+					<div class="code ">
+						<i class="fa fa-barcode fa-2x fl"></i>
+						<input type="text" placeholder="输入验证码" class="fl"/><span ng-click="showCode()" ng-bind="code"></span>
+					</div>
+					<input type="button" id='submit' value="注册新用户" ng-disabled="myForm.account.$dirty && myForm.account.$invalid ||
+myForm.email.$dirty && myForm.email.$invalid" ng-click="register()"/>
+				</form>
+			</div>			
+		</div>
+		
+		<footer>
+			<div class="border"></div>
+			<a href="mobileMall.html">
+				<i class="fa fa-home fa-2x"></i>
+				<span>首页</span>
+			</a>
+			<a href="ng-products.html">
+				<i class="fa fa-braille fa-2x"></i>
+				<span>产品列表</span>
+			</a>
+			<a href="shoppingCart.html">
+				<i class="fa fa-shopping-cart fa-2x"></i>
+				<span>购物车</span>
+			</a>
+			<a href="user.html" class="footerBtn">
+				<i class="fa fa-user-circle-o fa-2x"></i>
+				<span>会员中心</span>
+			</a>			
+		</footer>
+		<div class="morelist">
+			<ul>
+				<li>
+					<a href="mobileMall.html">首页</a>
+				</li>
+				<li>
+					<a href="ng-products.html">产品列表</a>
+				</li>
+				<li>
+					<a href="shoppingCart.html">购物车</a>
+				</li>
+				<li>
+					<a href="user.html">会员中心</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

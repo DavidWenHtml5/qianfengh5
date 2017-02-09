@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>后台登录</title>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/css/jquery-confirm.css">
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.css">
+	
+		<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="libs/jquery-confirm/js/jquery-confirm.js"></script>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="libs/angular/common.js"></script>
+	
+		<style type="text/css" media="screen">
+			.bs-example{width: 45%; margin: 20px auto;}
+		</style>
+	</head>
+	<body ng-app="dwAPP" ng-controller="dwController">
+		<div class="index">
+			<a href="s-index.html">主页</a>
+		</div>
+		<div class="bs-example">
+		    <form class="form-horizontal" role="form">
+		      <div class="form-group">
+		        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+		        <div class="col-sm-10">
+		          <input type="email" class="form-control" ng-model="email" placeholder="Email">
+		        </div>
+		      </div>      
+		      <div class="form-group">
+		        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+		        <div class="col-sm-10">
+		          <input type="password" class="form-control" ng-model="password" placeholder="Password">
+		        </div>
+		      </div>    
+		      <div class="form-group">
+		        <div class="col-sm-offset-2 col-sm-10">
+		          <button type="button" ng-click="submit()" class="btn btn-default">Login</button>
+		        </div>
+		      </div>
+		    </form>
+	  	</div>
+		<script type="text/javascript">
+			var dwAPP = angular.module('dwAPP', ['commonApp']);
+			dwAPP.controller('dwController', ['$scope', '$http', function ($scope, $http) {
+				$scope.submit = function(){
+					$http.post('libs/php/s-login.php', {
+						email: $scope.email,
+						password: $scope.password
+					}).success(function(response){
+						// var $obj = eval('(' + response + ')');
+						if(response.state){
+							window.location.href = 's-index.html';
+						} else {
+							$.alert(response.message);
+						}
+					})				
+				}
+	
+			}])
+		</script>
+	</body>
+</html>

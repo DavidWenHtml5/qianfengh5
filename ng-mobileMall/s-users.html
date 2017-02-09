@@ -1,0 +1,165 @@
+<div class="bs-example" ng-controller="resetpasswordController">
+	<table class="table">
+		<select ng-model="selectValue" ng-change="ngchange()">
+						<option ng-repeat="key in thtitle" ng-bind="key" value="{{key}}"></option>
+					</select>
+					<input type="text" ng-model="inputValue" ng-change="ngchange()"/>
+		<thead>
+			<!--<tr>					
+				<td>
+					<input type="button" name="" id="" value="克隆" ng-click="clickClone()"/>
+				</td>
+			</tr>-->
+            <tr>
+                <th ng-repeat="key in thtitle" ng-bind="key"></th>
+                <!--<th>trselect</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- class="{{student['projectname'].indexOf('网') > -1 ? highlight : ''}}" -->
+            <tr ng-repeat="student in students | filter: myfilter | limitTo : pagerows : (pageindex - 1) * pagerows" ng-click="trClick(student,$index,$event)" ng-class="student.trSelect ? 'trActive' : ''" >
+                <td ng-repeat="sdt in student" ng-bind="sdt"></td>         
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="{{colspan + 1}}">
+                    <span ng-repeat="p in [] | range: pagecount" ng-bind="p" class="{{p == pageindex ? 'active' : ''}}" ng-click="page(p)"></span>
+                </td>
+                
+            </tr>
+        </tfoot>
+	</table>
+</div>
+	
+<script type="text/javascript">
+	dwAPP.register.controller('resetpasswordController', ['$scope', '$http','$attrs', function ($scope, $http,$attrs) {
+		$http({
+			method:'GET',
+			url:'libs/php/s-getTable.php',
+			params:{
+				getTable:'user'
+			}}).success(function (response) {
+//			console.log(response)
+	        $scope.students = response;
+	        $scope.colspan = 0;
+	        $scope.thtitle = [];
+	        
+	        for (var key in $scope.students[0]) {
+	            $scope.colspan += 1;
+	            $scope.thtitle.push(key);
+	        }	
+			
+			if($attrs.language && $attrs.language != ''){
+				
+				$scope.thtitle = dictionary.translate($attrs.language,$scope.dictionary);
+//				console.log(123)
+			}
+//			console.log($scope.thtitle)
+	        //pagerows每页显示 的行数
+	        $scope.pagerows = $attrs.page;
+	        $scope.pageindex = 1;
+	        $scope.pagecount = Math.ceil($scope.students.length / $scope.pagerows);
+	    })
+		
+	    $scope.page = function (_index) {
+	        $scope.pageindex = _index;
+	    }
+	    
+	    $scope.trcontent = [];
+	    $scope.trClick = function(s,_index,_event){
+	    	$(_event.target).closest('tr').toggleClass('trActive');
+	    	
+	    	if($(_event.target).closest('tr').hasClass('trActive')){
+	    		$scope.trcontent[s.indexid] = s;
+	    	}else{
+	    		delete $scope.trcontent[s.indexid];
+	    	}
+//			console.log($scope.trcontent)
+	    }
+	    
+	    $scope.clickClone = function(){
+	    	console.log(111)
+			for(var stu in $scope.trcontent){
+				$scope.trcontent[stu].trSelect = false
+				$scope.students.push(JSON.parse(angular.toJson($scope.trcontent[stu])));
+			}
+			
+			if($scope.selectValue && $scope.inputValue){
+				page();
+			}else{
+				$scope.pagecount = Math.ceil($scope.students.length / $scope.pagerows);
+			}
+			
+		}
+	    
+	    $scope.myfilter = function(student){
+
+	    	if($scope.selectValue && $scope.inputValue){
+	    		if($attrs.language){
+	    			for(var i in $scope.dictionary){
+	    				var dicKey = $scope.dictionary[i][$attrs.language];
+//					    				console.log($scope.dictionary[i][$attrs.language])
+	    				if(dicKey == $scope.selectValue){
+	    					
+	    					if((JSON.stringify(student[i]) + '').indexOf($scope.inputValue) > -1){
+//	    						console.log(student[i])
+				    			return student;
+				    		}
+	    					console.log(12)
+	    				}
+	    			}
+	    			
+	    		}else{
+	    			if((JSON.stringify(student[$scope.selectValue]) + '').indexOf($scope.inputValue) > -1){
+		    			return student;
+		    		}
+	    		}					    		
+	    		
+	    	}else{
+	    		return student;
+	    	}
+	    }
+	    
+	    $scope.tdselect = function(sdt){	    	
+	    	return tdsel(sdt);
+	    }
+	    
+	    var tdsel = function(param){
+	    	if(param != 'trSelect'){
+	    		return param;
+	    	}
+	    }
+	    
+	    
+	    $scope.ngchange = function(){
+			page();
+	    }
+	    
+	    var page =function(){
+	    	var total = 0;
+       		for(var i = 0;i < $scope.students.length;i++){
+       			if($attrs.language){
+	    			for(var k in $scope.dictionary){
+	    				var dicKey = $scope.dictionary[k][$attrs.language];
+//					    				console.log($scope.dictionary[i][$attrs.language])
+	    				if(dicKey == $scope.selectValue){
+	    					
+	    					if(($scope.students[i][k] + '').indexOf($scope.inputValue) > -1){
+	    						total++;
+				    		}	
+	    				}
+	    			}
+	    			
+	    		}else{
+	    			if(($scope.students[i][$scope.selectValue] + '').indexOf($scope.inputValue) > -1){
+           				total++;
+           			}
+	    		}			           			
+//			    console.log(total)
+       		}
+       		$scope.pagecount = Math.ceil(total / $scope.pagerows);
+	    };
+		
+	}])
+</script>

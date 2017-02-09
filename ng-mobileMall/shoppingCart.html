@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.min.css"/>
+		
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/angular/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/angular-sanitize/angular-sanitize.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/js/jqall.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/es6js/all.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="cart" ng-controller="cartCtrl">
+		<header>
+			<a href="javascript:window.history.go(-1)">
+				<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+			</a>
+			<div>购物车</div>
+			<a href="javascript:;" class="more">
+				<i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+			</a>
+		</header>
+		<div class="content">
+			<div class="payproductlist">
+				<ul class="myproducts" ng-repeat="pro in cartProduct">
+					<li class="checked">
+						<i class="fa fa-circle-o fa-2x" ng-click="checkedSelect($event,pro.price,pro.guid)"></i>
+					</li>
+					<li class="proimg">
+						<img ng-src="{{pro.src}}"/>
+					</li>
+					<li class="procontent">
+						<p ng-bind="pro.title"></p>
+						<p class='price'>
+							<span class="buydate" ng-bind="'收藏日期：' + pro.buydate"></span>
+							<span ng-bind='"￥" + pro.price'></span>
+							
+						</p>
+						<div class="myproductsbar">
+							<span class="minuscount minuscountactive" ng-class="minuscolor($index)"><i class="fa fa-minus" ng-click="minusCart($event,pro.guid)"></i></span><span class="count" ng-bind="pro.number">1</span><span class="pluscount"><i class="fa fa-plus" ng-click="plusCart($event,pro.guid)"></i></span>
+							<span class="prolistdel"><i class="fa fa-trash fa-2x" ng-click="delCart($event,pro.guid)"></i></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="scrolltop">
+				<i class="fa fa-arrow-up fa-2x"></i>
+			</div>
+		</div>
+		<footer class="cartbar">
+			<div class="border"></div>
+			<ul>
+				<li class="allcheck" ng-click="allcheck()">
+					<i class="fa fa-circle-o fa-2x"></i>
+					<span>全选</span>
+				</li>
+				<li class="payfortype">支付方式</li>
+				<li class="paynow">
+					<a href="payfor.html" ng-bind="'确认并支付(' + payforCount + ')'"></a>
+				</li>
+			</ul>
+		</footer>
+		<div class="morelist">
+			<ul>
+				<li>
+					<a href="mobileMall.html">首页</a>
+				</li>
+				<li>
+					<a href="ng-products.html">产品列表</a>
+				</li>
+				<li>
+					<a href="shoppingCart.html">购物车</a>
+				</li>
+				<li>
+					<a href="user.html">会员中心</a>
+				</li>
+			</ul>
+		</div>
+		<div class='mask'><i class="fa fa-spinner fa-spin"></i></div>
+		<div class="payforcover">
+			<div>
+				<span>微信支付</span>
+				<span>支付宝支付</span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			
+		</script>
+	</body>
+</html>

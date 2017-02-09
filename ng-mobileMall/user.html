@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>会员中心</title>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.min.css"/>
+		
+		<script src="libs/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery-confirm/js/jquery-confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/angular/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/js/jqall.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/es6js/all.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="user" ng-controller="userctrl">
+		<header>
+			<a href="javascript:window.history.go(-1)">
+				<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+			</a>
+			<div>会员中心</div>
+			<a href="javascript:;" class="more">
+				<i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>
+			</a>
+		</header>
+		
+		<div class="content">
+			<div class="user-head">
+				<span><img src="libs/dist/images/testPic1.jpg"></span>
+	            <span>
+	                <p>
+	                	<span ng-bind="account"></span>
+	                	<a ng-href="{{login}}" ng-bind="log" ng-click="logout()"></a>
+	                </p>
+	                <p><img src="libs/dist/images/testPic1.jpg">普通会员</p>
+	            </span>
+	            <span>
+	            	<a href="userinfo.html" class="">
+			            <i class="fa fa-angle-right fa-2x"></i>
+			        </a>
+	            </span>
+			</div>
+			
+			
+			<div class="user-finance">
+	            <div class="col-xs-4">
+	            	<a href="fnlist.html?id=2&amp;name=我的金额">
+	            		<div>100</div>
+	            		<div>我的金额</div>
+	            	</a>
+	            </div>
+	            <div class="col-xs-4">
+	            	<a href="fnlist.html?id=1&amp;name=我的佣金">
+	            		<div>50</div>
+	            		<div>可用金额</div>
+	            	</a>
+	            </div>
+	            <div class="col-xs-4">
+	            	<a href="fnlist.html?id=1&amp;name=我的佣金">
+	            		<div>1000</div>
+	            		<div>代币</div>
+	            	</a>
+	            </div>
+	        </div>
+			
+			<div class="list-group user-menu">
+	            <a href="userlist.html?id=1" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-bicycle fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>初级会员</span>
+	                <div class="item-count">5</div>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	            <a href="userlist.html?id=2" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-car fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>中级会员</span>
+	                <div class="item-count">5</div>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	            <a href="userlist.html?id=3" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-plane fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>高级会员</span>
+	                <div class="item-count">5</div>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	        </div>
+	        
+	        <div class="list-group user-menu">
+	            <a href="orderlist.html" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-file-text-o fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>我的订单</span>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	            <a href="#" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-trophy fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>升级为商家</span>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	            <a href="userinfo.html" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>完善资料</span>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	            <a href="#" class="list-group-item">
+	                <span class="fa-stack fa-lg">
+	                	<i class="fa fa-circle fa-stack-2x"></i>
+	                	<i class="fa fa-key fa-stack-1x fa-inverse"></i>
+	                </span>
+	                <span>修改密码</span>
+	                <span><i class="fa fa-angle-right"></i></span>
+	            </a>
+	        </div>
+		</div>
+		
+		<footer>
+			<div class="border"></div>
+			<a href="mobileMall.html">
+				<i class="fa fa-home fa-2x"></i>
+				<span>首页</span>
+			</a>
+			<a href="ng-products.html">
+				<i class="fa fa-braille fa-2x"></i>
+				<span>产品列表</span>
+			</a>
+			<a href="shoppingCart.html">
+				<i class="fa fa-shopping-cart fa-2x"></i>
+				<span>购物车</span>
+			</a>
+			<a href="user.html" class="footerBtn">
+				<i class="fa fa-user-circle-o fa-2x"></i>
+				<span>会员中心</span>
+			</a>			
+		</footer>
+		<div class="morelist">
+			<ul>
+				<li>
+					<a href="register.html">注册</a>
+				</li>
+				<li>
+					<a href="login.html">登录</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

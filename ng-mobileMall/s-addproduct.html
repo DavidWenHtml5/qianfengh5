@@ -1,0 +1,163 @@
+<div class="bs-example" ng-controller="resetpasswordController">
+	<form>
+		<input type="file" name="filesrc" id="filesrc" ng-model="filesrc"/>
+		<input type="text" name="title" id="title" placeholder="请输入商品的描述内容" ng-model="title"/>
+		<input type="text" name="price" id="price" placeholder="请输入商品的价格" ng-model="price"/>
+		<input type="button" name="sentbtn" id="sentbtn" value="上传" ng-click="sentPro()"/>
+	</form>
+	
+</div>
+	
+<script type="text/javascript">
+	dwAPP.register.controller('resetpasswordController', ['$scope', '$http','$attrs', function ($scope, $http,$attrs) {
+		$http({
+			method:'GET',
+			url:'libs/php/s-getTable.php',
+			params:{
+				getTable:'products'
+			}}).success(function (response) {
+//			console.log(response)
+	        $scope.contents = response;
+	        $scope.colspan = 0;
+	        $scope.thtitle = [];
+	        
+	        for (var key in $scope.contents[0]) {
+	            $scope.colspan += 1;
+	            $scope.thtitle.push(key);
+	        }	
+			
+			if($attrs.language && $attrs.language != ''){
+				
+				$scope.thtitle = dictionary.translate($attrs.language,$scope.dictionary);
+//				console.log(123)
+			}
+//			console.log($scope.thtitle)
+	        //pagerows每页显示 的行数
+	        $scope.pagerows = $attrs.page;
+	        $scope.pageindex = 1;
+	        $scope.pagecount = Math.ceil($scope.contents.length / $scope.pagerows);
+	    })
+		
+	    $scope.page = function (_index) {
+	        $scope.pageindex = _index;
+	    }
+	    
+	    $scope.trcontent = [];
+	    $scope.trClick = function(s,_index,_event){
+	    	
+	    	$(_event.target).closest('tr').toggleClass('trActive');
+	    	
+	    	if($(_event.target).closest('tr').hasClass('trActive')){
+	    		$scope.trcontent[s.indexid] = s;
+	    	}else{
+	    		delete $scope.trcontent[s.indexid];
+	    	}
+//			console.log($scope.trcontent)
+	    }
+	    
+//	    $scope.clickClone = function(){
+//	    	console.log(111)
+//			for(var stu in $scope.trcontent){
+//				$scope.trcontent[stu].trSelect = false
+//				$scope.contents.push(JSON.parse(angular.toJson($scope.trcontent[stu])));
+//			}
+//			
+//			if($scope.selectValue && $scope.inputValue){
+//				page();
+//			}else{
+//				$scope.pagecount = Math.ceil($scope.contents.length / $scope.pagerows);
+//			}
+//			
+//		}
+	    
+	    $scope.myfilter = function(content){
+
+	    	if($scope.selectValue && $scope.inputValue){
+	    		if($attrs.language){
+	    			for(var i in $scope.dictionary){
+	    				var dicKey = $scope.dictionary[i][$attrs.language];
+//					    				console.log($scope.dictionary[i][$attrs.language])
+	    				if(dicKey == $scope.selectValue){
+	    					
+	    					if((JSON.stringify(content[i]) + '').indexOf($scope.inputValue) > -1){
+	    						console.log(content[i])
+				    			return content;
+				    		}
+	    					console.log(12)
+	    				}
+	    			}
+	    			
+	    		}else{
+	    			if((JSON.stringify(content[$scope.selectValue]) + '').indexOf($scope.inputValue) > -1){
+		    			return content;
+		    		}
+	    		}					    		
+	    		
+	    	}else{
+	    		return content;
+	    	}
+	    }
+	    
+	    
+	    $scope.ngchange = function(){
+			page();
+	    }
+	    
+	    var page =function(){
+	    	var total = 0;
+       		for(var i = 0;i < $scope.contents.length;i++){
+       			if($attrs.language){
+	    			for(var k in $scope.dictionary){
+	    				var dicKey = $scope.dictionary[k][$attrs.language];
+//					    				console.log($scope.dictionary[i][$attrs.language])
+	    				if(dicKey == $scope.selectValue){
+	    					
+	    					if(($scope.contents[i][k] + '').indexOf($scope.inputValue) > -1){
+	    						total++;
+				    		}	
+	    				}
+	    			}
+	    			
+	    		}else{
+	    			if(($scope.contents[i][$scope.selectValue] + '').indexOf($scope.inputValue) > -1){
+           				total++;
+           			}
+	    		}			           			
+//			           			console.log(total)
+       		}
+       		$scope.pagecount = Math.ceil(total / $scope.pagerows);
+	    };
+		
+		//上传产品资料
+		$scope.sentPro = function(){
+			
+			$('form').ajaxSubmit({
+				type: 'post',
+				url: 'libs/php/form-product.php',
+				success:function(data){
+					var _data = typeof data == 'string' ? JSON.parse(data) : data;
+					
+					if(_data.status){						
+						var _guid = Guid.NewGuid().ToString();
+						
+						$http.post('libs/php/s-changeproduct.php',{
+							src:"libs/dist/images/" + _data.fileName,
+							title:$scope.title,
+							price:$scope.price,
+							guid:_guid
+						}).success(function(_response){
+							var res = typeof _response == 'string' ? JSON.parse(_response) : _response;
+							console.log(res.message);
+						});
+					}                   
+                },
+                error:function(XmlHttpRequest,textStatus,errorThrown){
+                    console.log(XmlHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+			})
+			
+		}
+	}])
+</script>

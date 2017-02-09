@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>后台管理</title>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/jquery-confirm/css/jquery-confirm.css">
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.css">
+	
+		<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+		<script src="libs/jquery/dist/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="libs/jquery-confirm/js/jquery-confirm.js"></script>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script src="libs/angular-sanitize/angular-sanitize.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="libs/angular/common.js"></script>
+		<script src="libs/dist/js/guid.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css" media="screen">
+			.dkHeader{width: 100%; height: 48px; line-height: 48px;}
+			.dkContainer{position: fixed; top: 48px; right: 0; bottom: 48px; left: 0; border: solid 1px #C8C7CC;}
+			.dkContainer>.dkNav{position:absolute; width: 16%; top:0; bottom: 0; left: 0; border-right: solid 1px #C8C7CC;}
+			.dkContainer>.dkBody{position: absolute; top: 0; right: 0; bottom: 0; left: 16%;overflow: auto;}
+			.tr-selected{background: dodgerblue;}
+			td span{border:solid 1px #ccc; padding: 5px; background:#e0dbdb; cursor:pointer;}
+	        td span.active{color:#ccc; cursor:not-allowed;}
+	        td img{width: 90px;}
+		</style>
+	</head>
+	<body ng-app="dwAPP"  ng-controller="dwController">
+	<div class="dkHeader">
+		<span ng-bind="account"></span>
+	</div>
+	<div class="dkContainer">
+		<div class="dkNav">
+			<ul class="list-group" dk-nav></ul>
+		</div>
+		<div class="dkBody">请选择要进行操作</div>
+	</div>
+	<div class="dkFoot"></div>
+
+	<script type="text/javascript">
+		var dwAPP = angular.module('dwAPP', ['commonApp','ngSanitize']);
+
+		dwAPP.config(function($controllerProvider){
+			dwAPP.register = {
+				controller: $controllerProvider.register
+			}
+		});
+		
+		dwAPP.controller('dwController', ['$scope', '$http', '$compile', function ($scope, $http, $compile){
+			$http.get('libs/php/s-getsession.php').success(function(_response){
+				var res = typeof _response == 'string' ? JSON.parse(_response) : _response;
+				if(!res.state){
+					alert('您未登录，现在转到登录页面');
+					window.location.href = 's-login.html';
+				} else {
+					$scope.account = res.account;
+				}
+			});
+
+		}]);
+		
+		dwAPP.filter('range', function () {
+            return function (array, range) {
+                for (var i = 1 ; i <= range; i++) {
+                    array.push(i);
+                }
+                return array;
+            }
+	   });
+	</script>
+</body>
+</html>

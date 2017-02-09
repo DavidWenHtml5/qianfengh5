@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title></title>
+		<style type="text/css">
+			body,html{margin: 0;padding: 0;overflow: hidden;background-color: black;position: relative;height: 100%;}
+			body{background-image: url(img/asteroids_meteorids.png);}
+			div{position: absolute;margin:auto;transform: translate(-50%, -50%);left:50%;top:50%;-webkit-transform-style: preserve-3d;border-radius:50% ;}
+			.uni{transform: perspective(1000px) rotateY(-20deg) rotateX(50deg);}
+			.uni>div:nth-child(1){transform: rotateX(-10deg) rotateY(20deg);}
+			.uni>div:nth-child(2){transform: rotateX(30deg) rotateY(-10deg);}
+			.uni>div:nth-child(3){transform: rotateX(25deg) rotateY(30deg);}
+			.uni>div:nth-child(4){transform: rotateX(-30deg) rotateY(-45deg);}
+			.uni>div:nth-child(5){transform: rotateX(-60deg) rotateY(10deg);}
+			.uni>div:nth-child(7){transform: rotateX(-12deg) rotateY(10deg);}
+			.uni>div:nth-child(8){transform: rotateX(27deg) rotateY(-73deg);}
+			.uni div div{-webkit-animation-timing-function: linear;-webkit-animation-iteration-count: infinite;-webkit-animation-name: rotate;/*border: 1px solid #ddd;*/}
+			.uni div div:not(.Sun)>div:not(.moon){border: 1px solid #ddd;}
+			
+			.Neptune{height: 880px;width: 880px;-webkit-animation-duration: 20s;}
+			.Neptune>div{width: 34px;height: 34px;background-color:skyblue ;transform: translate(-428px,142px);}
+			.Neptune>div>div{width: 34px;height: 34px;background-color:skyblue ;}
+			.Uranus{height: 790px;width: 790px;-webkit-animation-duration: 22s;}
+			.Uranus>div{width: 34px;height: 34px;background-color:lightblue ;-webkit-transform: translate(312px,200px);}
+			.Uranus>div>div{width: 34px;height: 34px;background-color:lightblue ;}
+			.Saturn{height: 700px;width: 700px;-webkit-animation-duration: 18s;}
+			.Saturn>div:nth-child(1){width: 24px;height: 24px;background-color:yellow ;-webkit-transform: translate(-153px,-334px);}
+			.Saturn>div:nth-child(1)>div{width: 24px;height: 24px;background-color:yellow ;}
+			.uni div div.Saturn>div:nth-child(2){width: 34px;height: 30px;border:4px solid ghostwhite;-webkit-animation-duration: 5s;-webkit-animation-timing-function: linear;-webkit-animation-iteration-count: infinite;-webkit-transform-origin:center center;-webkit-animation-name: rotate;position: absolute;left: 210px;top: 30px;}
+			.Jupiter{height: 610px;width: 610px;-webkit-animation-duration: 15s;}
+			.Jupiter>div{width: 38px;height: 38px;background-color:saddlebrown ;-webkit-transform: translate(-6px,284px);}
+			.Jupiter>div>div{width: 38px;height: 38px;background-color:saddlebrown ;}
+			.Mars{height: 520px;width: 520px;-webkit-animation-duration: 16s;}
+			.Mars>div{width: 34px;height: 34px;background-color:darkgoldenrod ;-webkit-transform: translate(194px,-168px);}
+			.Mars>div>div{width: 34px;height: 34px;background-color:darkgoldenrod ;}
+			.Earth{height: 430px;width: 430px;-webkit-animation-duration: 14s;}
+			.Earth>div:nth-child(1){width: 30px;height: 30px;background-color:blue ;-webkit-transform: translate(-46px,196px);}
+			.Earth>div:nth-child(1)>div{width: 30px;height: 30px;background-color:blue ;}
+				div.moon{height: 46px;width: 46px;left: 203px;top: 0;border:none;left:43%;top:425px;-webkit-animation-duration: 2s;}
+				.moon>div{width: 8px;height: 8px;background-color:floralwhite ;-webkit-transform: translate(12px,-22px);}
+				.moon>div>div{width: 8px;height: 8px;background-color:floralwhite ;}
+			.Venus{height: 340px;width: 340px;-webkit-animation-duration: 13s;}
+			.Venus>div{width: 25px;height: 25px;background-color:orange ;-webkit-transform: translate(-152px,-114px);}
+			.Venus>div>div{width: 25px;height: 25px;background-color:orange ;}
+			.Mercury{height: 250px;width: 250px;-webkit-animation-duration: 12s;}
+			.Mercury>div{width:20px;height: 20px;background-color:dodgerblue ;-webkit-transform: translate(112px,10px);}
+			.Mercury div div{width:20px;height: 20px;background-color:dodgerblue ;}
+			.Sun{height: 140px;width: 140px;border: none;background:gold;box-shadow: 0 0 30px gold;-webkit-animation-name:none;-webkit-animation-duration:6s;}
+			.Sun div{height: 140px;width: 140px;border: none;background:gold;box-shadow: 0 0 30px gold;}			
+			
+			@-webkit-keyframes rotate {
+				0% {
+					-webkit-transform:translate(-50%,-50%) rotate(0deg);
+				}
+
+				100% {
+					-webkit-transform:translate(-50%,-50%) rotate(360deg);
+				}			
+			}
+			
+			@-webkit-keyframes ball {
+				0%{
+					-webkit-transform:translate(-50%,-50%) rotateY(0deg);
+				}
+			
+				100%{
+					-webkit-transform:translate(-50%,-50%) rotateY(360deg);
+				}
+			}
+		</style>
+		
+		<script src="../../libs/jquery/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="uni">
+			<div>
+				<div class="Neptune">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Uranus">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Saturn">
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Jupiter">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Mars">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Earth">
+					<div></div>
+					<div class="moon">
+						<div></div>
+					</div>				
+				</div>
+			</div>
+			<div>
+				<div class="Venus">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Mercury">
+					<div></div>
+				</div>
+			</div>
+			<div>
+				<div class="Sun"></div>
+			</div>
+				
+		</div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var disX = 50;
+				var disY = -20;
+				var left = null;
+				var top = null;
+				
+				document.onmousedown = function(evt){
+				
+					left = evt.clientX;
+					top = evt.clientY;
+					document.onmousemove = function(evt){
+						var mleft = evt.clientX;
+						var mtop = evt.clientY;
+						var mx = mleft - left;
+						var my = mtop - top;
+						
+						disX -= my*0.2;
+						disY += mx*0.2;
+						
+						var setcss = "perspective(1000px) rotateY("+ disY +"deg) rotateX("+ disX +"deg)";
+						document.getElementsByClassName("uni")[0].style.transform = setcss;
+						
+						left = mleft;
+						top = mtop;
+					}
+					
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					}
+				}
+				
+				var ball = function(ele){
+
+					for(var i = 1;ele == document.getElementsByClassName('Sun')[0] ? i<=5 : i<=3;i++){
+						var createDiv = document.createElement("div");
+						var createDiv2 = document.createElement("div");
+						var createDiv3 = document.createElement("div");
+						var createDiv4 = document.createElement("div");
+						
+						var rx = 45;
+						var ry = 45;
+						if(ele == document.getElementsByClassName('Sun')[0]){
+							rx = 30;
+							ry = 30;
+						}
+						
+						var str = 'translate(-50%,-50%) rotateX(' + i*rx + 'deg)';
+						var str2 = 'translate(-50%,-50%) rotateY(' + i*ry + 'deg)';
+						var str3 = 'translate(-50%,-50%) rotateX(' + i*rx + 'deg) rotateY(' + i*ry + 'deg)';
+						var str4 = 'translate(-50%,-50%) rotateY(' + i*ry + 'deg) rotateX(' + i*rx + 'deg)';
+						
+						
+						createDiv.style.transform = str;
+						createDiv2.style.transform = str2;
+						createDiv3.style.transform = str3;
+						createDiv4.style.transform = str4;
+						
+						ele.appendChild(createDiv);						
+						ele.appendChild(createDiv2);
+						ele.appendChild(createDiv3);						
+						ele.appendChild(createDiv4);
+					}
+					
+				}
+				
+				var sun = document.getElementsByClassName('Sun')[0];
+				var mer = $('.Mercury>div')[0];
+				var venus = $('.Venus>div')[0];
+				var earth = $('.Earth>div')[0];
+				var moon = $('.moon>div')[0];
+				var mars = $('.Mars>div')[0];
+				var jup = $('.Jupiter>div')[0];
+				var sat = $('.Saturn>div:nth-child(1)')[0];
+				var ura = $('.Uranus>div')[0];
+				var nep = $('.Neptune>div')[0];
+				
+				ball(sun);
+				ball(mer);
+				ball(venus);
+				ball(earth);
+				ball(moon);
+				ball(mars);
+				ball(jup);
+				ball(sat);
+				ball(ura);
+				ball(nep);
+			}
+			
+			$(function(){
+				var disX = 50;
+				var disY = -20;
+				var left = null;
+				var top = null;
+				
+				$(document).on('touchstart','body',function(evt){
+					
+					left = evt.originalEvent.targetTouches[0].clientX;
+					top = evt.originalEvent.targetTouches[0].clientY;					
+					
+					$(document).on('touchmove',function(evt){
+						console.log('===')
+						var mleft = evt.originalEvent.targetTouches[0].clientX;
+						var mtop = evt.originalEvent.targetTouches[0].clientY;
+						var mx = mleft - left;
+						var my = mtop - top;
+
+						disX -= my*0.2;
+						disY += mx*0.2;
+						console.log(disX)
+						var setcss = "perspective(800px) rotateY("+ disY +"deg) rotateX("+ disX +"deg)";
+						$('.uni').css({transform : setcss});
+						console.log($('.uni'))
+						left = mleft;
+						top = mtop;
+					})
+				})
+//				.on(touchend,function(){
+//					
+//				})
+			})
+			
+		</script>
+	</body>
+</html>

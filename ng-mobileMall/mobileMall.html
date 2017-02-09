@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>聚会买</title>
+		<link rel="stylesheet" type="text/css" href="libs/font-awesome/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/swiper/dist/css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="libs/dist/css/all.min.css"/>
+		
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/angular-sanitize/angular-sanitize.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/swiper/dist/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="libs/dist/js/jqall.min.js" type="text/javascript" charset="utf-8"></script>	
+		<script src="libs/dist/es6js/mobileMall.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-app="dw" ng-controller="dwController">
+		<div class="search">
+			<header>
+				<a href="javascript:window.history.go(-1)"></a>
+				<div>商品搜索</div>
+				<a href="javascript:;" class="hidden-search">
+					<i class="fa fa-times fa-2x "></i>
+				</a>
+			</header>
+			<div class="input-group">
+	            <span class="input-group-addon">
+	            	<i class="fa fa-search"></i>
+	            </span>
+	            <input type="text" class="form-control date-range ng-pristine ng-untouched ng-valid ng-empty" ng-model="keyword">
+	            <span class="input-group-addon">
+	            	<a href="index.html?keyword=">搜索</a>
+	            </span>
+	        </div>
+		</div>
+		<header>
+			<a href="javascript:window.history.go(-1)"></a>
+			<div>聚会买商城</div>
+			<a href="javascript:;"class="show-search">
+				<i class="fa fa-search fa-2x "></i>
+			</a>
+		</header>
+		<div class="content">
+			<a href="ng-products.html">
+				<img src="libs/dist/images/slide_1474545501648.jpg"/>
+			</a>
+			
+			<div class="swiper-container">
+			  <div class="swiper-wrapper">
+			    <div class="swiper-slide" ng-repeat="banner in bannerimg">
+			    	<a href="#">
+			    		<img ng-src="{{banner.src}}"/>
+			    	</a>
+			    </div>
+			  </div>
+			  <div class="swiper-button-prev swiper-button-white"></div>
+    		  <div class="swiper-button-next swiper-button-white"></div>
+			  <div class="swiper-pagination"></div>
+			</div>
+			
+			<ul class="top-advertisement">
+				<li ng-repeat="content in topAdvertisement">
+					<a href="ng-products.html">
+						<img ng-src="{{content.src}}"/>
+						<span ng-bind="content.title"></span>
+					</a>
+				</li>
+			</ul>
+			
+			<a href="ng-products.html">
+				<img src="libs/images/a4_11kc32i8giiehd15g65iiig3al6e2_778x440.jpg"/>
+			</a>
+			
+			<a href="ng-products.html">
+				<img src="libs/images/offers1.jpg"/>
+			</a>
+			<a href="ng-products.html">
+				<img src="libs/images/offers2.jpg"/>
+			</a>
+			
+			<div class="category">
+				<a href="ng-products.html" ng-repeat="img in categroy">
+					<img ng-src='{{img.src}}'/>
+				</a>
+			</div>
+			
+			<img src="libs/images/26.jpg"/>
+			<div class="productlist">
+				<div class="productlist-content" ng-repeat="pro in indexplist | limitTo : pagerows">
+					<a href="ng-products.html">
+						<img ng-src="{{pro.src}}"/>
+					<p ng-bind='pro.title'></p>
+					<p ng-bind='pro.price'></p>
+					</a>
+					
+				</div>
+			</div>
+			<div class="scrolltop">
+				<i class="fa fa-arrow-up fa-2x"></i>
+			</div>
+		</div>
+		<footer>
+			<div class="border"></div>
+			<a href="mobileMall.html" class="footerBtn">
+				<i class="fa fa-home fa-2x"></i>
+				<span>首页</span>
+			</a>
+			<a href="ng-products.html">
+				<i class="fa fa-braille fa-2x"></i>
+				<span>产品列表</span>
+			</a>
+			<a href="shoppingCart.html">
+				<i class="fa fa-shopping-cart fa-2x"></i>
+				<span>购物车</span>
+			</a>
+			<a href="user.html">
+				<i class="fa fa-user-circle-o fa-2x"></i>
+				<span>会员中心</span>
+			</a>
+			
+		</footer>
+		
+		<div class="mask"><i class="fa fa-spinner fa-spin"></i></div>
+	</body>
+</html>

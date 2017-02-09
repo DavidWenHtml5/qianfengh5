@@ -1,0 +1,178 @@
+<div class="bs-example" ng-controller="resetpasswordController">
+	<table class="table">
+		<select ng-model="selectValue" ng-change="ngchange()">
+			<option ng-repeat="key in thtitle" ng-bind="key" value="{{key}}"></option>
+		</select>
+		<input type="text" ng-model="inputValue" ng-change="ngchange()" />
+		<thead>
+			<tr>
+				<th>trselect</th>
+				<th ng-repeat="key in thtitle" ng-bind="key"></th>
+				<th>delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- class="{{content['projectname'].indexOf('网') > -1 ? highlight : ''}}" -->
+			<tr ng-repeat="content in contents | filter: myfilter | limitTo : pagerows : (pageindex - 1) * pagerows" ng-click="trClick(content,$index,$event)" ng-class="content.trSelect ? 'trActive' : ''">
+				<td>
+					<input type="checkbox" name="" id="" value="" />
+				</td>
+				<!--<td ng-bind="$index + 1"></td>-->
+				<td ng-repeat="cont in content" ng-bind-html="imgsrc(cont,content)"></td>
+				<td><input type="button" name="delbtn" id="delbtn" value="删除" ng-click="delProBtn($event,content.guid)" /></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="{{colspan + 1}}">
+					<span ng-repeat="p in [] | range: pagecount" ng-bind="p" class="{{p == pageindex ? 'active' : ''}}" ng-click="page(p)"></span>
+				</td>
+
+			</tr>
+		</tfoot>
+	</table>
+</div>
+
+<script type="text/javascript">
+	dwAPP.register.controller('resetpasswordController', ['$scope', '$http', '$attrs', function($scope, $http, $attrs) {
+		$http.get('libs/php/s-getTable.php',{
+			params: {
+				getTable: 'products'
+			}
+		}).success(function(response) {
+			//			console.log(response)
+			$scope.contents = response;
+			$scope.colspan = 0;
+			$scope.thtitle = [];
+
+			for(var key in $scope.contents[0]) {
+				$scope.colspan += 1;
+				$scope.thtitle.push(key);
+			}
+
+			if($attrs.language && $attrs.language != '') {
+
+				$scope.thtitle = dictionary.translate($attrs.language, $scope.dictionary);
+				//				console.log(123)
+			}
+			//			console.log($scope.thtitle)
+			//pagerows每页显示 的行数
+			$scope.pagerows = $attrs.page;
+			$scope.pageindex = 1;
+			$scope.pagecount = Math.ceil($scope.contents.length / $scope.pagerows);
+		})
+
+		$scope.page = function(_index) {
+			$scope.pageindex = _index;
+		}
+
+		$scope.trcontent = [];
+		$scope.trClick = function(s, _index, _event) {
+
+			$(_event.target).closest('tr').toggleClass('trActive');
+
+			if($(_event.target).closest('tr').hasClass('trActive')) {
+				$scope.trcontent[s.indexid] = s;
+			} else {
+				delete $scope.trcontent[s.indexid];
+			}
+			//					    	console.log($scope.trcontent)
+		}
+
+		//	    $scope.clickClone = function(){
+		//	    	console.log(111)
+		//			for(var stu in $scope.trcontent){
+		//				$scope.trcontent[stu].trSelect = false
+		//				$scope.contents.push(JSON.parse(angular.toJson($scope.trcontent[stu])));
+		//			}
+		//			
+		//			if($scope.selectValue && $scope.inputValue){
+		//				page();
+		//			}else{
+		//				$scope.pagecount = Math.ceil($scope.contents.length / $scope.pagerows);
+		//			}
+		//			
+		//		}
+
+		$scope.myfilter = function(content) {
+			//			console.log(content)
+			if($scope.selectValue && $scope.inputValue) {
+				if($attrs.language) {
+					for(var i in $scope.dictionary) {
+						var dicKey = $scope.dictionary[i][$attrs.language];
+						//					    				console.log($scope.dictionary[i][$attrs.language])
+						if(dicKey == $scope.selectValue) {
+
+							if((JSON.stringify(content[i]) + '').indexOf($scope.inputValue) > -1) {
+								console.log(content[i])
+								return content;
+							}
+							console.log(12)
+						}
+					}
+
+				} else {
+					if((JSON.stringify(content[$scope.selectValue]) + '').indexOf($scope.inputValue) > -1) {
+						return content;
+					}
+				}
+
+			} else {
+				return content;
+			}
+		}
+
+		$scope.ngchange = function() {
+			page();
+		}
+
+		var page = function() {
+			var total = 0;
+			for(var i = 0; i < $scope.contents.length; i++) {
+				if($attrs.language) {
+					for(var k in $scope.dictionary) {
+						var dicKey = $scope.dictionary[k][$attrs.language];
+						//					    				console.log($scope.dictionary[i][$attrs.language])
+						if(dicKey == $scope.selectValue) {
+
+							if(($scope.contents[i][k] + '').indexOf($scope.inputValue) > -1) {
+								total++;
+							}
+						}
+					}
+
+				} else {
+					if(($scope.contents[i][$scope.selectValue] + '').indexOf($scope.inputValue) > -1) {
+						total++;
+					}
+				}
+				//			           			console.log(total)
+			}
+			$scope.pagecount = Math.ceil(total / $scope.pagerows);
+		};
+
+		$scope.imgsrc = function(cont, content) {
+			//			if(cont != content.indexid){
+			if(content.src == cont) {
+				return "<img src='" + cont + "'/>";
+			}
+			return cont;
+			//			}			
+		}
+
+		$scope.delProBtn = function(_event, _guid) {
+			console.log($(_event.target))
+			$http.post('libs/php/s-changeproduct.php', {
+				delpro: 'ture',
+				guid: _guid
+			}).success(function(_response) {
+				var res = typeof _response == 'string' ? JSON.parse(_response) : _response;
+				if(res.state) {
+					$(_event.target).closest('tr').remove();
+				} else {
+					alert(res.message);
+				}
+			});
+		}
+	}])
+</script>
